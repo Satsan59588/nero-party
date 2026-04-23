@@ -7,4 +7,78 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-// Design your schema here
+model Party {
+  id           String        @id @default(cuid())
+  name         String
+  code         String        @unique // 6-char shareable join code
+  status       String        @default("waiting") // waiting | active | ended
+  maxSongs     Int?
+  currentSongId String?
+  createdAt    DateTime      @default(now())
+  participants Participant[]
+  songs        Song[]
+}
+
+model Participant {
+  id        String     @id @default(cuid())
+  partyId   String
+  name      String
+  socketId  String?
+  isHost    Boolean    @default(false)
+  joinedAt  DateTime   @default(now())
+  party     Party      @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  reactions Reaction[]
+  crowns    Crown[]
+  skipVotes SkipVote[]
+}
+
+model Song {
+  id           String     @id @default(cuid())
+  partyId      String
+  youtubeId    String
+  title        String
+  artist       String
+  thumbnail    String
+  durationSecs Int
+  addedBy      String     // participant name
+  queueOrder   Int
+  playedAt     DateTime?
+  party        Party      @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  reactions    Reaction[]
+  crowns       Crown[]
+  skipVotes    SkipVote[]
+}
+
+model Reaction {
+  id            String      @id @default(cuid())
+  songId        String
+  participantId String
+  type          String      // dislike | vibe | love
+  createdAt     DateTime    @default(now())
+  song          Song        @relation(fields: [songId], references: [id], onDelete: Cascade)
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  @@unique([songId, participantId]) // one reaction per person per song (upserted on change)
+}
+
+model Crown {
+  id            String      @id @default(cuid())
+  songId        String
+  participantId String
+  createdAt     DateTime    @default(now())
+  song          Song        @relation(fields: [songId], references: [id], onDelete: Cascade)
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  @@unique([songId, participantId]) // one crown per person per song
+}
+
+model SkipVote {
+  id            String      @id @default(cuid())
+  songId        String
+  participantId String
+  createdAt     DateTime    @default(now())
+  song          Song        @relation(fields: [songId], references: [id], onDelete: Cascade)
+  participant   Participant @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  @@unique([songId, participantId]) // one skip vote per person per song
+}

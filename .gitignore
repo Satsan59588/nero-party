@@ -1,5 +1,35 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
+build/
+.vite/
+
+# Environment — never commit secrets
 .env
+.env.local
+.env.*.local
+
+# Database
 *.db
 *.db-journal
+*.db-wal
+*.db-shm
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude
+.claude/

@@ -1,7 +1,10 @@
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "http://localhost:3000";
-
-export const socket = io(SOCKET_URL, {
+export const socket = io("http://localhost:3000", {
   autoConnect: false,
 });
+
+export function joinPartyRoom(partyId: string, participantId: string) {
+  if (!socket.connected) socket.connect();
+  socket.emit("join", { partyId, participantId });
+}

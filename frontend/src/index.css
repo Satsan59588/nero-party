@@ -1,3 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --nero-white:         #ffffff;
+  --nero-canvas:        #fafafa;
+  --nero-surface-1:     #f6f6f6;
+  --nero-surface-2:     #f2f2f2;
+  --nero-surface-3:     #ebebeb;
+  --nero-surface-4:     #e6e6e6;
+  --nero-border:        #ededed;
+  --nero-border-strong: #e0e0e0;
+  --nero-ink-1:         #0a0a0a;
+  --nero-ink-2:         #1a1a1a;
+  --nero-ink-3:         #474747;
+  --nero-ink-4:         #6b6b6b;
+  --nero-ink-5:         #9a9a9a;
+
+  --nero-green-700:     #15803d;
+  --nero-green-600:     #17a34a;
+  --nero-green-500:     #22c55e;
+  --nero-mint-400:      #caefd2;
+  --nero-mint-300:      #dbe7dd;
+  --nero-mint-200:      #edf9ef;
+  --nero-mint-100:      #edf6ee;
+
+  --bg-page:            var(--nero-canvas);
+  --bg-surface:         var(--nero-white);
+  --bg-surface-muted:   var(--nero-surface-2);
+  --bg-nav:             rgba(235, 235, 235, 0.6);
+  --bg-inverse:         var(--nero-ink-1);
+
+  --fg-1:               var(--nero-ink-1);
+  --fg-2:               var(--nero-ink-3);
+  --fg-3:               var(--nero-ink-4);
+  --fg-muted:           var(--nero-ink-5);
+  --fg-on-inverse:      var(--nero-white);
+  --fg-accent:          var(--nero-green-600);
+
+  --border-default:     var(--nero-border);
+  --border-strong:      var(--nero-border-strong);
+
+  --accent:             var(--nero-green-600);
+  --accent-wash:        var(--nero-mint-200);
+  --accent-badge-bg:    var(--nero-mint-300);
+
+  --font-display:       'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-body:          'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-mono:          ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --ease-nero:          cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast:           120ms;
+  --dur-base:           200ms;
+  --dur-slow:           320ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--bg-page);
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes neroCapIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes neroGlow {
+  0%, 100% { box-shadow: 0 0 60px 14px rgba(23,163,74,0.32); }
+  50%       { box-shadow: 0 0 96px 28px rgba(23,163,74,0.5); }
+}
+
+@keyframes neroFloat {
+  0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-120px) scale(1.15); }
+}
+
+@keyframes neroFloatGold {
+  0%   { opacity: 0; transform: translateY(0) scale(0.5) rotate(-12deg); }
+  10%  { opacity: 1; transform: translateY(-14px) scale(1.5) rotate(8deg); }
+  40%  { opacity: 1; transform: translateY(-70px) scale(1.3) rotate(-5deg); }
+  100% { opacity: 0; transform: translateY(-260px) scale(1.15) rotate(6deg); }
+}
+
+@keyframes neroToastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes neroToastOut {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to   { opacity: 0; transform: translateX(-50%) translateY(16px); }
+}
+
+@keyframes neroModalIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes neroModalBgIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes neroWinnerIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes neroActIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes neroGlowRot {
+  from { transform: translate(-50%,-50%) rotate(0); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+@keyframes neroBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes neroShake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-2px); }
+  75%       { transform: translateX(2px); }
+}
+
+@keyframes neroConfetti {
+  0%   { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(720px) rotate(540deg); opacity: 0; }
+}
+
+@keyframes neroTallyIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes neroFlamePulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+@keyframes neroPulse {
+  0%   { transform-origin: 210px 210px; transform: scale(0.9); opacity: 0.6; }
+  100% { transform-origin: 210px 210px; transform: scale(1.15); opacity: 0; }
+}
+
+@keyframes neroDotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(0.6); opacity: 0.5; }
+}
+
+@keyframes neroAvatarPop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none" stroke="#ededed" stroke-width="1">
+  
+  <g>
+    
+    <circle cx="-200" cy="450" r="120"></circle>
+    <circle cx="-200" cy="450" r="220"></circle>
+    <circle cx="-200" cy="450" r="320"></circle>
+    <circle cx="-200" cy="450" r="420"></circle>
+    <circle cx="-200" cy="450" r="520"></circle>
+    <circle cx="-200" cy="450" r="620"></circle>
+    <circle cx="-200" cy="450" r="720"></circle>
+    <circle cx="-200" cy="450" r="820"></circle>
+    <circle cx="-200" cy="450" r="920"></circle>
+    <circle cx="-200" cy="450" r="1020"></circle>
+    <circle cx="-200" cy="450" r="1120"></circle>
+    <circle cx="-200" cy="450" r="1220"></circle>
+    <circle cx="-200" cy="450" r="1320"></circle>
+  </g>
+  <g>
+    
+    <circle cx="1800" cy="450" r="120"></circle>
+    <circle cx="1800" cy="450" r="220"></circle>
+    <circle cx="1800" cy="450" r="320"></circle>
+    <circle cx="1800" cy="450" r="420"></circle>
+    <circle cx="1800" cy="450" r="520"></circle>
+    <circle cx="1800" cy="450" r="620"></circle>
+    <circle cx="1800" cy="450" r="720"></circle>
+    <circle cx="1800" cy="450" r="820"></circle>
+    <circle cx="1800" cy="450" r="920"></circle>
+    <circle cx="1800" cy="450" r="1020"></circle>
+    <circle cx="1800" cy="450" r="1120"></circle>
+    <circle cx="1800" cy="450" r="1220"></circle>
+    <circle cx="1800" cy="450" r="1320"></circle>
+  </g>
+</svg>

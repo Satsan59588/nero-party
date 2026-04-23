@@ -94,7 +94,7 @@ The app runs at **[http://localhost:5173](http://localhost:5173)**
 3. Friends open the link and enter their name to join
 4. Search for songs and add them to the shared queue
 5. Host hits **Start Playing** — everyone hears the same song in sync
-6. React with 👎 🙂 😍 or spend your 👑 Crown on the track that deserves it
+6. React with 👎 🙂 😍 or spend your 👑 on the track that deserves it
 7. Host clicks **End Session** to tally scores and reveal the results
 
 ## Project structure

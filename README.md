@@ -6,7 +6,7 @@ A real-time listening party app. Create a session, invite friends with a shareab
 
 - **Shared queue** — everyone searches and adds songs
 - **Synchronized playback** — all participants hear the same song at the same position in real time
-- **Reactions** — Dislike (−1), Vibe (+2), Love (+3), and one Crown per person per session (8×)
+- **Reactions** — Dislike (−1), Vibe (+2), Love (+3), and one Crown per person per session (+8)
 - **Room skip vote** — 75% of the room auto-advances the song
 - **Results reveal** — weighted song podium, Auxecutive leaderboard, and side awards
 
